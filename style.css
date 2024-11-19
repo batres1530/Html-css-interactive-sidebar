@@ -1,3 +1,4 @@
+/* Establece márgenes en 0 y aplica box-sizing para incluir padding y border en el ancho total */
 *,
 ::after,
 ::before {
@@ -5,95 +6,114 @@
   box-sizing: border-box;
 }
 
+/* Estilos para el cuerpo de la página */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
-  background-size: cover;
-  background-color: black;
+  font-family: Arial, Helvetica, sans-serif; /* Fuente predeterminada */
+  height: 100vh; /* Altura de la pantalla completa */
+  background-size: cover; /* Escala la imagen de fondo (si hay alguna) para cubrir toda la pantalla */
+  background-color: black; /* Fondo negro si no hay imagen */
 
-  display: flex;
-  align-items: center;
+  display: flex; /* Centra verticalmente el contenido usando Flexbox */
+  align-items: center; /* Alinea el contenido al centro verticalmente */
 }
+
+/* Estilos para la barra lateral */
 .sidebar {
-  background-color: white;
-  width: max-content;
-  border-radius: 10px;
-  padding: 2rem 1rem;
+  background-color: white; /* Fondo blanco para la barra lateral */
+  width: max-content; /* Ajusta el ancho al contenido */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 2rem 1rem; /* Espaciado interno (arriba/abajo 2rem, izquierda/derecha 1rem) */
 }
 
+/* Efecto al pasar el mouse por encima de un elemento de la barra lateral */
 .sidebar:hover .sidebar__element {
-  grid-template-columns: 40px 1fr;
+  grid-template-columns: 40px 1fr; /* Cambia el tamaño de la cuadrícula para expandir el contenido */
 }
 
+/* Lista de elementos dentro de la barra lateral */
 .sidebar__list {
-  list-style: none;
-  padding: 0;
+  list-style: none; /* Quita el estilo de lista predeterminado (viñetas) */
+  padding: 0; /* Sin padding extra */
 
-  min-height: 600px;
-  display: flex;
-
-  flex-direction: column;
-  gap: 0.4rem;
+  min-height: 600px; /* Altura mínima para la lista */
+  display: flex; /* Utiliza Flexbox para organizar los elementos */
+  flex-direction: column; /* Coloca los elementos en una columna */
+  gap: 0.4rem; /* Espacio entre los elementos */
 }
 
+/* Estilos para cada elemento de la barra lateral */
 .sidebar__element {
-  padding: 0.8rem 1.3rem;
-  border-radius: 3px;
+  padding: 0.8rem 1.3rem; /* Espaciado interno (arriba/abajo 0.8rem, izquierda/derecha 1.3rem) */
+  border-radius: 3px; /* Bordes redondeados */
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  display: grid; /* Utiliza cuadrícula para organizar el contenido */
+  align-items: center; /* Centra verticalmente el contenido */
+  grid-template-columns: 40px 0fr; /* Define dos columnas: un ícono (40px) y el texto (oculto por defecto) */
 
-  display: grid;
-  align-items: center;
-  grid-template-columns: 40px 0fr;
+  color: #526581; /* Color de texto predeterminado */
+  fill: #8491a5; /* Color para íconos SVG */
 
-  color: #526581;
-  fill: #8491a5;
-
-  transition: grid-template-columns 0.4s;
+  transition: grid-template-columns 0.4s; /* Transición suave para cambiar el tamaño de las columnas */
 }
+
+/* Cambia el estilo al pasar el ratón por encima de los elementos (excepto el logo) */
 .sidebar__element:not(.sidebar__element--logo):hover {
-  background-color: #007aff;
-  color: white;
-  fill: white;
-  cursor: pointer;
+  background-color: #007aff; /* Fondo azul al hacer hover */
+  color: white; /* Texto blanco */
+  fill: white; /* Color blanco para íconos */
+  cursor: pointer; /* Cambia el cursor a una mano al hacer hover */
 }
 
+/* Estilos específicos para el ícono del logo */
 .sidebar__icon--logo {
-  max-width: 40px;
+  max-width: 40px; /* Ancho máximo del ícono del logo */
 }
 
+/* Aplica un margen inferior si el elemento tiene un ícono de logo */
 .sidebar__element:has(.sidebar__icon--logo) {
   margin-bottom: 2rem;
 }
+
+/* Estilo para el logo dentro de la barra lateral */
 .sidebar__logo {
-  /* se tiene que cambiar */
-  width: 210px;
-  height: 40px;
+  width: 90px; /* Ancho del logo */
+  height: 80px; /* Altura del logo */
 }
 
+/* Estilos para íconos dentro de los elementos */
 .sidebar__icon {
-  max-width: 30px;
+  max-width: 30px; /* Ancho máximo para los íconos */
 }
 
+/* Estilos para un ícono de avatar */
 .sidebar__icon--avatare {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
+  width: 40px; /* Ancho del avatar */
+  height: 40px; /* Altura del avatar */
+  border-radius: 50%; /* Hace que el avatar sea circular */
+  object-fit: cover; /* Asegura que la imagen cubra el área del avatar sin distorsión */
+  object-position: center; /* Centra la imagen dentro del avatar */
 }
+
+/* Estilo para un elemento específico de avatar */
 .sidebar__element--avatare {
-  margin-top: auto;
-  text-wrap: nowrap;
+  margin-top: auto; /* Empuja este elemento al final de la barra lateral */
+  text-wrap: nowrap; /* Evita que el texto se divida en varias líneas */
 }
+
+/* Ajusta el espaciado a la izquierda para el logo y el texto */
 .sidebar__logo,
 .sidebar-text {
   padding-left: 1.3rem;
 }
+
+/* Oculta el desbordamiento para la barra lateral */
 .sidebar__hide {
   overflow: hidden;
 }
 
+/* Estilos para los títulos y la información adicional en la barra lateral */
 .sidebar__title,
 .sidebar_info {
-  text-wrap: nowrap;
-  padding-left: 1.3rem;
+  text-wrap: nowrap; /* Evita que el texto se divida en varias líneas */
+  padding-left: 1.3rem; /* Espaciado a la izquierda */
 }
